@@ -27,32 +27,40 @@ const waitList = [];
 
 // calling our home root home.html
 app.get("/", function (req, res) {
-  console.log("I made it here!");
+  console.log("I am home!");
   res.sendFile(path.join(__dirname, "homepage.html"));
 });
 // tables route
 app.get("/tables", function (req, res) {
-  console.log("I made it here!");
+  console.log("I made it tables!");
 
   res.sendFile(path.join(__dirname, "viewtable.html"));
 });
 
 app.get("/reserve", function (req, res) {
-  console.log("I made it here!");
+  console.log("I made it to reserve!");
 
   res.sendFile(path.join(__dirname, "makereservation.html"));
 });
 
 app.get("/api/tables", function (req, res) {
-  console.log("I made it here!");
+  console.log("I made it to the api!");
   return res.json(tables);
 });
 
 app.get("/api/waitlist", function (req, res) {
-  console.log("I made it here!");
+  console.log("I made it to the api waitlist!");
   return res.json(waitList);
 });
 
+// POST REQUEST
+app.post("/api/tables", function (req, res) {
+  const newTable = req.body;
+
+  console.log(newTable);
+  tables.push(newTable);
+  res.json(newTable);
+});
 // create server
 app.listen(PORT, function () {
   console.log("App listening on PORT " + PORT);
