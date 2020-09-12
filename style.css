@@ -1,0 +1,17 @@
+.header{
+    background-color: lightgrey;
+    text-align: center;
+    padding: 50px;
+}
+footer{
+    margin-top: 100px;
+}
+
+.reservation{
+    
+    margin: 7%;
+}
+
+.table{
+    background-color: lightgray;
+}
