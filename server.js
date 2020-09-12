@@ -28,19 +28,19 @@ const waitList = [];
 // calling our home root home.html
 app.get("/", function (req, res) {
   console.log("I made it here!");
-  res.sendFile(path.join(__dirname, "home.html"));
+  res.sendFile(path.join(__dirname, "homepage.html"));
 });
 // tables route
 app.get("/tables", function (req, res) {
   console.log("I made it here!");
 
-  res.sendFile(path.join(__dirname, "tables.html"));
+  res.sendFile(path.join(__dirname, "viewtable.html"));
 });
 
 app.get("/reserve", function (req, res) {
   console.log("I made it here!");
 
-  res.sendFile(path.join(__dirname, "reserve.html"));
+  res.sendFile(path.join(__dirname, "makereservation.html"));
 });
 
 app.get("/api/tables", function (req, res) {
