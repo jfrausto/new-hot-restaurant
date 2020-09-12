@@ -26,33 +26,25 @@
         <form>
             <div class="form-group">
               <label for="exampleInputEmail1">Name</label>
-              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              <input type="email" class="form-control" id="name" aria-describedby="emailHelp">
               <small id="emailHelp" class="form-text text-muted">Only the person whose name is on the reservation can check in
               </small>
             </div>
             <div class="form-group">
               <label for="exampleInputPassword1">Phone Number</label>
-              <input type="password" class="form-control" id="exampleInputPassword1">
+              <input type="password" class="form-control" id="phonenumber">
             </div>
             <div class="form-group">
                 <label for="exampleInputPassword1">Email</label>
-                <input type="password" class="form-control" id="exampleInputPassword1">
+                <input type="password" class="form-control" id="email">
               </div>
               <div class="form-group">
                 <label for="exampleInputPassword1">Unique ID</label>
-                <input type="password" class="form-control" id="exampleInputPassword1">
+                <input type="password" class="form-control" id="uniqueID">
               </div>
             
             <button type="submit" class="btn btn-primary">Submit</button>
           </form>
-
-
-
-
-
-
-
-
 
 
     </div>
@@ -62,5 +54,24 @@
 
       <a href="https://example.com">API wait list </a>
     </footer>
+
+    <script type="text/javascript">
+      $(".submit").on("click", function(event) {
+        event.preventDefault();
+        var newTable = {
+          name: $("#name").val().trim(),
+          phonenumber: $("#phonenumber").val().trim(),
+          email: $("#email").val().trim(),
+          uniqueID: $("#uniqueID").val().trim()
+        };
+  
+      
+        $.post("/api/viewtable", newTable)
+          .then(function(data) {
+            console.log("add.html", data);
+            alert("Adding table...");
+          });
+      });
+    </script>
   </body>
 </html>
